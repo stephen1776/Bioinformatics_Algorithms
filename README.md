@@ -1,3 +1,3 @@
 # Bioinformatics_Algorithms
-This is my collection of problems that I've solved using Python from the Rosalind Bioinformatics website.  
+This is my collection of Python codes that I wrote to implement the Algorithms found on the Rosalind Bioinformatics website.  
 [Rosalind](http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track "Rosalind") is a platform for learning bioinformatics and programming through problem solving. 
