@@ -1,5 +1,10 @@
 #Stephen Blatti
 import sys
+def reverseComplement(dna):
+    dnaComplementDict = {'A':'T','C':'G','G':'C','T':'A'} #create dictionary
+    complementDNA = [ dnaComplementDict[i] for i in dna ] #complement the dna
+    return ''.join(complementDNA[::-1])
+
 def SymbolToNumber(symbol):
     d = {'A':0, 'C':1, 'G':2, 'T':3}
     return d[symbol]
@@ -39,3 +44,26 @@ def HammingDistance(DNA1, DNA2):
     for i in range(0, len(DNA1)):
         hamDist = sum(u != v for u,v in zip(DNA1, DNA2))
     return hamDist
+
+def Neighbors(Pattern, d):
+    if d == 0:
+        return Pattern
+    if len(Pattern) == 1:
+        return ['A','C','G','T']
+    Neighborhood = []
+    suffixNeighbors = Neighbors(Pattern[1:], d)
+    for Text in suffixNeighbors:
+        if HammingDistance(Pattern[1:], Text) < d:
+            for x in ['A','C','G','T']:
+                Neighborhood.append(x + Text)
+        else:
+            Neighborhood.append(Pattern[:1] + Text)
+    return Neighborhood
+
+def ApproximatePatternCount(Text, Pattern, d):
+    count = 0
+    for i in range(0, len(Text) - len(Pattern) + 1):
+        Pattern_p = Text[i:i + len(Pattern)]
+        if HammingDistance(Pattern, Pattern_p) <= d:
+            count += 1
+    return count
