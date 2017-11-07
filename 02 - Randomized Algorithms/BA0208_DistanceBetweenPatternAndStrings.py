@@ -8,8 +8,8 @@ Given: A DNA string Pattern and a collection of DNA strings Dna.
 Return: DistanceBetweenPatternAndStrings(Pattern, Dna).
 '''
 # Sample data
-pattern = 'AAA'
-strings = ['TTACCTTAAC','GATATCTGTC','ACGGCGTTCG','CCCTAAAGAG','CGTCAGAGGT']
+#pattern = 'AAA'
+#strings = ['TTACCTTAAC','GATATCTGTC','ACGGCGTTCG','CCCTAAAGAG','CGTCAGAGGT']
 #output = 5
 import HelperFunctions as hf
 
