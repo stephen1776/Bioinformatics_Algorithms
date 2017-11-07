@@ -13,22 +13,18 @@ Return: DistanceBetweenPatternAndStrings(Pattern, Dna).
 #output = 5
 import HelperFunctions as hf
 
-def distanceBetweenPatternAndString(pattern, text):
-    ham_distance = float('inf')
-    for i in range(len(text) - len(pattern) + 1):
-        hd = hf.HammingDistance(pattern, text[i:i + len(pattern)])
-        if hd < ham_distance:
-            ham_distance = hd
-    return ham_distance
-
-
-def distanceBetweenPatternAndStrings(pattern, strings):
+def distanceBetweenPatternAndStrings(pattern, dna):
     k = len(pattern)
     distance = 0
-    for i in range(len(strings)):
-        distance += distanceBetweenPatternAndString(pattern, strings[i])
+    for string in dna:
+        hamming_dist = float('Inf')
+        for i in range(len(string) - k + 1):
+            kmer = string[i:i+k]
+            hd = hf.HammingDistance(pattern, kmer)
+            if hamming_dist > hd:
+                hamming_dist = hd
+        distance += hamming_dist
     return distance
-
 
 
 if __name__ == '__main__':

@@ -11,6 +11,7 @@ import sys, HelperFunctions as hf
 
 def  median_string(dna, k):
     distance = float('inf')
+    median = None
     for i in range(0,4**k):
         pattern = hf.NumberToPattern(i,k)
         if distance > hf.distanceBetweenPatternAndStrings(pattern, dna):
@@ -20,7 +21,7 @@ def  median_string(dna, k):
 
 
 if __name__ == '__main__':
-    infile = open('data/rosalind_ba2b2.txt', 'r')
+    infile = open('data/median_string.txt', 'r')
     lines = infile.read().splitlines()
     k = int(lines[0])
     dna = lines[1:]
